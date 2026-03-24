@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Check } from "lucide-react";
+import { supabase } from "../../lib/supabase";
 
 const plans = [
   {
@@ -29,7 +30,7 @@ const plans = [
   },
 ];
 
-function PricingCard({ plan, isYearly, isActive, onActivate }: { plan: typeof plans[0]; isYearly: boolean; isActive: boolean; onActivate: () => void }) {
+function PricingCard({ plan, isYearly, isActive, onActivate, isLoggedIn }: { plan: typeof plans[0]; isYearly: boolean; isActive: boolean; onActivate: () => void; isLoggedIn: boolean }) {
   const price = isYearly ? plan.yearlyPrice : plan.monthlyPrice;
   const active = isActive;
 
@@ -94,7 +95,7 @@ function PricingCard({ plan, isYearly, isActive, onActivate }: { plan: typeof pl
         whileTap={{ scale: 0.98 }}
         onClick={(e) => {
           e.stopPropagation();
-          window.location.href = "/signup";
+          window.location.href = isLoggedIn ? "/pricing" : "/signup";
         }}
         className={`w-full rounded-full py-3.5 font-semibold transition-colors duration-500 ${
           active
@@ -113,6 +114,13 @@ function PricingCard({ plan, isYearly, isActive, onActivate }: { plan: typeof pl
 export function PricingSection() {
   const [isYearly, setIsYearly] = useState(false);
   const [activeCard, setActiveCard] = useState<number | null>(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setIsLoggedIn(!!session);
+    });
+  }, []);
 
   return (
     <section id="pricing" className="py-16 lg:py-24 bg-white">
@@ -180,7 +188,7 @@ export function PricingSection() {
               key={i}
               variants={{ hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
             >
-              <PricingCard plan={plan} isYearly={isYearly} isActive={activeCard === i} onActivate={() => setActiveCard(i)} />
+              <PricingCard plan={plan} isYearly={isYearly} isActive={activeCard === i} onActivate={() => setActiveCard(i)} isLoggedIn={isLoggedIn} />
             </motion.div>
           ))}
         </motion.div>

@@ -315,12 +315,12 @@ function Frame17() {
   const subtitle = "Streamline outreach, automate engagement, and grow safely with smart timing and built-in safety controls.";
 
   return (
-    <div className="flex flex-col gap-5 lg:gap-6 items-center lg:items-start relative shrink-0 text-[#0d0d0d] w-full">
-      <div className="font-['Inter',sans-serif] font-bold leading-[1.15] relative shrink-0 text-[26px] sm:text-[32px] lg:text-[44px] xl:text-[50px] 2xl:text-[56px] text-center lg:text-left">
-        <div className="whitespace-nowrap">
+    <div className="flex flex-col gap-5 lg:gap-6 items-start relative shrink-0 text-[#0d0d0d] w-full">
+      <div className="font-['Inter',sans-serif] font-bold leading-[1.15] relative shrink-0 text-[32px] sm:text-[38px] lg:text-[44px] xl:text-[50px] 2xl:text-[56px] text-left">
+        <div>
           <LetterReveal text={line1} delay={0.2} />
         </div>
-        <div className="whitespace-nowrap mt-1">
+        <div className="mt-1">
           <LetterReveal text={line2} delay={0.2 + line1.length * 0.035 + 0.1} />
         </div>
       </div>
@@ -328,7 +328,7 @@ function Frame17() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 + (line1.length + line2.length) * 0.035 + 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className="font-['Inter',sans-serif] font-normal text-gray-600 leading-[1.7] relative shrink-0 text-[15px] sm:text-[17px] lg:text-[19px] max-w-[520px] text-center lg:text-left"
+        className="font-['Inter',sans-serif] font-normal text-gray-600 leading-[1.7] relative shrink-0 text-[15px] sm:text-[17px] lg:text-[19px] max-w-[520px] text-left"
       >
         {subtitle}
       </motion.p>
@@ -373,7 +373,7 @@ function ButtonContainer() {
 
 function Frame18() {
   return (
-    <div className="relative flex flex-col gap-6 lg:gap-[49px] items-center lg:items-start w-full max-w-[591px]">
+    <div className="relative flex flex-col gap-6 lg:gap-[49px] items-start w-full max-w-[591px]">
       <Frame17 />
       <ButtonContainer />
     </div>
@@ -419,9 +419,9 @@ function HeroImages() {
       initial={{ opacity: 0, y: 80 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="relative flex-1 flex items-center justify-center order-first lg:order-none lg:flex-none lg:absolute lg:right-[-8%] xl:right-[-5%] 2xl:right-[-2%] lg:top-[55%] lg:-translate-y-1/2 mt-20 lg:mt-0"
+      className="relative w-full flex justify-end lg:flex-none lg:absolute lg:right-[-8%] xl:right-[-5%] 2xl:right-[-2%] lg:top-[55%] lg:-translate-y-1/2 -mr-8 sm:-mr-4 lg:mr-0"
     >
-      <div className="relative w-[320px] h-[320px] sm:w-[380px] sm:h-[380px] lg:w-[540px] lg:h-[540px] xl:w-[580px] xl:h-[580px] 2xl:w-[640px] 2xl:h-[640px]">
+      <div className="relative w-[360px] h-[360px] sm:w-[420px] sm:h-[420px] lg:w-[540px] lg:h-[540px] xl:w-[580px] xl:h-[580px] 2xl:w-[640px] 2xl:h-[640px]">
         {/* Blue circle */}
         <BgShape />
 
@@ -445,7 +445,7 @@ function HeroImages() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           whileHover={{ scale: 1.08, transition: { duration: 0.3 } }}
-          className="absolute left-[18%] top-[-5%] w-[35%] h-[23%] cursor-pointer z-20"
+          className="absolute left-[18%] top-[-10%] w-[35%] h-[23%] cursor-pointer z-20"
           style={{ rotate: "-29.08deg" }}
         >
           <img alt="" className="absolute inset-0 max-w-none object-cover rounded-[10px] size-full pointer-events-none" src={imgFrame10000056551} />
@@ -469,7 +469,7 @@ function HeroImages() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           whileHover={{ scale: 1.06, transition: { duration: 0.3 } }}
-          className="absolute left-[-3%] top-[50%] w-[40%] h-[42%] cursor-pointer z-10"
+          className="absolute left-[-1%] top-[50%] w-[40%] h-[42%] cursor-pointer z-10"
           style={{ rotate: "-30.05deg" }}
         >
           <img alt="" className="absolute inset-0 max-w-none object-cover size-full pointer-events-none" src={imgGroup24631} />
@@ -481,10 +481,10 @@ function HeroImages() {
 
 function Frame4() {
   return (
-    <div className="relative min-h-[calc(100vh-80px)] w-full flex flex-col-reverse lg:block overflow-visible pt-24 lg:pt-0">
+    <div className="relative min-h-[calc(100vh-80px)] w-full flex flex-col lg:block overflow-visible pt-24 lg:pt-0">
       <Base />
-      <HeroImages />
       <Left />
+      <HeroImages />
     </div>
   );
 }
@@ -4519,102 +4519,139 @@ const problemSolutionItems = [
 function ProblemSolutionMobile() {
   return (
     <section className="py-16 bg-white overflow-hidden">
-      <div className="px-6 mb-10">
+      {/* Gradient badge */}
+      <div className="px-6 mb-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="inline-block px-5 py-2 rounded-full bg-blue-50 text-[#2a6ff3] text-sm font-medium"
+          className="inline-block px-5 py-2 rounded-full text-sm font-medium text-white"
+          style={{ background: "linear-gradient(135deg, #4A9EF7 0%, #2A6FF3 50%, #6CB4F8 100%)" }}
         >
           Problem & Solutions
         </motion.div>
       </div>
 
-      <div className="relative px-4">
-        {/* S-Curve SVG Path */}
+      <div className="relative" style={{ minHeight: "1100px" }}>
+        {/* S-Curve SVG */}
         <svg
-          className="absolute left-1/2 -translate-x-1/2 top-0 h-full w-[200px] pointer-events-none"
-          viewBox="0 0 200 1000"
+          className="absolute left-0 top-0 w-full h-full pointer-events-none"
+          viewBox="0 0 400 1100"
           fill="none"
-          preserveAspectRatio="none"
+          preserveAspectRatio="xMidYMid meet"
         >
-          {/* Red section for Problem */}
+          {/* Red curve - Problem section */}
           <motion.path
-            d="M100,0 C100,0 100,50 100,80 C100,130 180,160 180,220 C180,280 20,310 20,370"
+            d="M200,0 C200,20 200,40 220,70 C260,120 340,140 350,200 C360,260 300,290 240,310"
             stroke="#F31705"
-            strokeWidth="12"
+            strokeWidth="18"
             strokeLinecap="round"
             fill="none"
             initial={{ pathLength: 0 }}
             whileInView={{ pathLength: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
           />
-          {/* Blue section for Solutions */}
+          {/* Blue curve - Solutions section */}
           <motion.path
-            d="M20,370 C20,430 180,460 180,530 C180,600 20,630 20,700 C20,770 180,800 180,870 C180,920 100,950 100,1000"
+            d="M240,310 C180,330 60,360 50,430 C40,510 160,530 200,560 C260,600 360,630 360,710 C360,790 200,810 160,840 C100,880 60,920 60,980 C60,1040 140,1070 200,1100"
             stroke="#2A6FF3"
-            strokeWidth="12"
+            strokeWidth="18"
             strokeLinecap="round"
             fill="none"
             initial={{ pathLength: 0 }}
             whileInView={{ pathLength: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1.8, delay: 0.8, ease: "easeInOut" }}
+            transition={{ duration: 2, delay: 1, ease: "easeInOut" }}
           />
         </svg>
 
-        {/* Items */}
-        <div className="relative flex flex-col gap-16">
-          {problemSolutionItems.map((item, i) => {
-            const isLeft = i % 2 === 0;
-            return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: isLeft ? -40 : 40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: i * 0.2 }}
-                className={`flex items-start gap-4 ${isLeft ? "flex-row pr-[40%]" : "flex-row-reverse pl-[40%]"}`}
-              >
-                <div className="flex-shrink-0 mt-1">
-                  {item.type === "problem" ? (
-                    <div className="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 2L1 21h22L12 2z" fill="#EB4335" />
-                        <text x="12" y="17" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">!</text>
-                      </svg>
-                    </div>
-                  ) : i === 1 ? (
-                    <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center">
-                      <svg width="22" height="22" viewBox="0 0 24 24" fill="#2A6FF3">
-                        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
-                        <path d="M7 9h10v2H7zM7 5h10v2H7z"/>
-                      </svg>
-                    </div>
-                  ) : i === 2 ? (
-                    <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center">
-                      <svg width="22" height="22" viewBox="0 0 24 24" fill="#2A6FF3">
-                        <path d="M12 2L2 12l10 10 10-10L12 2zm0 3l7 7-7 7-7-7 7-7z"/>
-                      </svg>
-                    </div>
-                  ) : (
-                    <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center">
-                      <svg width="22" height="22" viewBox="0 0 24 24" fill="#2A6FF3">
-                        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
-                      </svg>
-                    </div>
-                  )}
-                </div>
-                <div className={isLeft ? "text-left" : "text-right"}>
-                  <h3 className="text-2xl font-bold text-[#0d0d0d] mb-2">{item.title}</h3>
-                  <p className="text-sm text-[#5e5e5e] leading-relaxed">{item.description}</p>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
+        {/* Problem - Right aligned with icon on left */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-30px" }}
+          transition={{ duration: 0.6 }}
+          className="relative flex items-start gap-4 pl-[35%] pr-6 pt-8 pb-6"
+        >
+          <div className="flex-shrink-0 mt-1">
+            <div className="w-11 h-11 rounded-xl bg-red-50 flex items-center justify-center">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <path d="M1 21h22L12 2 1 21z" fill="#EB4335" opacity="0.2" stroke="#EB4335" strokeWidth="1"/>
+                <text x="12" y="18" textAnchor="middle" fill="#EB4335" fontSize="12" fontWeight="bold">!</text>
+              </svg>
+            </div>
+          </div>
+          <div className="text-left">
+            <h3 className="text-[26px] font-bold text-[#0d0d0d] mb-2">Problem</h3>
+            <p className="text-[15px] text-[#5e5e5e] leading-relaxed">Manual Instagram outreach is time-consuming, inconsistent, and hard to scale.</p>
+          </div>
+        </motion.div>
+
+        {/* Solution 1 - Left aligned with icon on right */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-30px" }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="relative flex items-start gap-4 pr-[35%] pl-6 pt-20 pb-6"
+        >
+          <div className="text-left flex-1">
+            <h3 className="text-[26px] font-bold text-[#0d0d0d] mb-2">Solution 1</h3>
+            <p className="text-[15px] text-[#5e5e5e] leading-relaxed">Identify ideal prospects from followers, likers, and hashtags.</p>
+          </div>
+          <div className="flex-shrink-0 mt-1">
+            <div className="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="#2A6FF3">
+                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+                <path d="M13 11V7l-4 4 4 4v-4z" fill="white"/>
+              </svg>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Solution 2 - Right aligned with icon on left */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-30px" }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="relative flex items-start gap-4 pl-[20%] pr-6 pt-24 pb-6"
+        >
+          <div className="flex-shrink-0 mt-1">
+            <div className="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="#2A6FF3">
+                <path d="M12 2L2 12h3v8h6v-6h2v6h6v-8h3L12 2zm0 2.84L19.16 12H18v8h-2v-6H8v6H6v-8H4.84L12 4.84z"/>
+              </svg>
+            </div>
+          </div>
+          <div className="text-left">
+            <h3 className="text-[26px] font-bold text-[#0d0d0d] mb-2">Solution 2</h3>
+            <p className="text-[15px] text-[#5e5e5e] leading-relaxed">Monitor campaign activity and response rates instantly.</p>
+          </div>
+        </motion.div>
+
+        {/* Solution 3 - Left aligned with icon on right */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-30px" }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="relative flex items-start gap-4 pr-[30%] pl-6 pt-24 pb-6"
+        >
+          <div className="text-left flex-1">
+            <h3 className="text-[26px] font-bold text-[#0d0d0d] mb-2">Solution 3</h3>
+            <p className="text-[15px] text-[#5e5e5e] leading-relaxed">Automate personalized DMs with smart follow-ups</p>
+          </div>
+          <div className="flex-shrink-0 mt-1">
+            <div className="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="#2A6FF3">
+                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+              </svg>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

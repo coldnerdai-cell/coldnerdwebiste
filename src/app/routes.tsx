@@ -5,6 +5,8 @@ import Dashboard from "../imports/Frame1000005560";
 import Login from "../imports/Login";
 import Signup from "../imports/Signup";
 import Blog from "../imports/Blog";
+import Pricing from "../imports/Pricing";
+import TermsAndConditions from "../imports/TermsAndConditions";
 
 const pageVariants = {
   initial: { opacity: 0, y: 15 },
@@ -60,6 +62,14 @@ export const router = createBrowserRouter([
       {
         path: "/signup",
         element: <Signup />,
+      },
+      {
+        path: "/pricing",
+        element: <Pricing />,
+      },
+      {
+        path: "/terms-and-conditions",
+        element: <TermsAndConditions />,
       }
     ],
   },
