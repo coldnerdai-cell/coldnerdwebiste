@@ -6,56 +6,52 @@ const imgLogo = "/logo.png";
 
 const sections = [
   {
-    title: "1. Acceptance of Terms",
-    content: `By accessing and using ColdNerd ("Service"), you accept and agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, you must not use our Service. These terms apply to all visitors, users, and others who access or use the Service.`,
+    title: "1. Who We Are",
+    content: `Cold Nerd ("we", "our", or "us") operates the website coldnerd.com and provides an AI-powered Instagram outreach automation platform ("the Service"). We are the data controller for information collected through our platform.\n\nFor all payment and billing inquiries, Paddle.com Market Limited acts as the Merchant of Record and is an independent data controller for payment-related data.`,
   },
   {
-    title: "2. Description of Service",
-    content: `ColdNerd provides Instagram automation tools including but not limited to: automated direct messaging, campaign management, audience targeting, analytics, follow-up sequences, and account warmup features. Our Service is designed to help businesses and individuals scale their Instagram outreach while maintaining compliance with platform guidelines.`,
+    title: "2. Information We Collect",
+    content: `We collect the following categories of information:\n\n• Account Information: Name, email address, and password when you register for an account.\n• Instagram Credentials: Instagram account details you provide to connect your account to the Service. These are used solely to operate the automation features on your behalf.\n• Usage Data: Information about how you use the platform, including features accessed, campaigns created, messages sent, and automation settings configured.\n• Technical Data: IP address, browser type, device information, and cookies used for platform functionality and security.\n• Billing Data: Subscription plan and billing history. Note: actual payment card data is collected and held by Paddle, not us.\n• AI Input Data: Content you upload (e.g. CSV files, target usernames, message goals) to generate personalised outreach messages via our AI engine.`,
   },
   {
-    title: "3. User Accounts",
-    content: `When you create an account with us, you must provide accurate, complete, and current information. You are responsible for safeguarding your account credentials and for any activities or actions under your account. You must notify us immediately upon becoming aware of any breach of security or unauthorized use of your account. You may not use another person's account without permission.`,
+    title: "3. How We Use Your Information",
+    content: `We use the information we collect to:\n\n• Provide, operate, and maintain the Cold Nerd platform and its automation features\n• Process and manage your subscription through Paddle\n• Generate AI-personalised outreach messages on your behalf using OpenAI and Gemini AI\n• Send transactional emails (account verification, password reset, billing confirmations)\n• Monitor platform usage to prevent abuse, fraud, and violations of Instagram's Terms of Service\n• Improve and develop new features of the Service\n• Respond to your support requests and communications\n• Comply with applicable legal obligations`,
   },
   {
-    title: "4. Acceptable Use Policy",
-    content: `You agree not to use ColdNerd to:\n\n• Send spam, unsolicited messages, or harassing content\n• Violate Instagram's Terms of Service or Community Guidelines\n• Impersonate any person or entity\n• Collect personal information of others without consent\n• Distribute malware or engage in phishing\n• Circumvent any rate-limiting or safety features of the Service\n• Use the Service for any illegal or unauthorized purpose\n\nWe reserve the right to terminate accounts that violate these policies without prior notice.`,
+    title: "4. Payments & Paddle",
+    content: `All subscription payments are processed by Paddle.com Market Limited, our Merchant of Record. Paddle handles:\n\n• Collection and processing of credit/debit card and other payment method details\n• Subscription billing and renewals\n• Invoicing and receipts\n• Refund processing\n• Sales tax and VAT compliance\n\nWhen you purchase a Cold Nerd subscription, you are entering into a transaction facilitated by Paddle. Your payment data is governed by Paddle's Privacy Policy and Paddle's Buyer Terms. Cold Nerd never has access to your full payment card details.`,
   },
   {
-    title: "5. Instagram Compliance",
-    content: `ColdNerd includes built-in safety controls such as smart timing, rate limiting, and account warmup features to help you comply with Instagram's guidelines. However, you are solely responsible for ensuring your use of the Service complies with Instagram's Terms of Service and any applicable laws. ColdNerd is not affiliated with, endorsed by, or sponsored by Instagram or Meta Platforms, Inc.`,
+    title: "5. Third-Party Services",
+    content: `Cold Nerd integrates with the following third-party services to deliver its features. Each operates under their own privacy policy:\n\n• OpenAI (ChatGPT): Used to analyse Instagram profiles and generate personalised DM messages. Data processed: prospect bio text and post captions.\n• Google Gemini AI: Alternative AI engine for message generation.\n• ElevenLabs / HumanAI TTS: Used for optional voice note DM generation.\n• Paddle.com: Payment processing and subscription management.\n• Instagram / Meta: Our platform interfaces with Instagram on your behalf using your credentials. Usage is subject to Instagram's Privacy Policy and Terms of Service.`,
   },
   {
-    title: "6. Subscription & Billing",
-    content: `ColdNerd offers subscription-based pricing plans (Basic, Pro, and Ultimate). By subscribing to a paid plan:\n\n• You authorize us to charge your payment method on a recurring basis\n• Subscription fees are billed in advance on a monthly or annual basis\n• You may cancel your subscription at any time; cancellation takes effect at the end of the current billing period\n• No refunds will be issued for partial billing periods\n• We reserve the right to modify pricing with 30 days' advance notice`,
+    title: "6. Data Retention",
+    content: `We retain your personal data for as long as your account is active or as needed to provide the Service. Specifically:\n\n• Account data is retained for the duration of your subscription and deleted within 30 days of account closure upon request\n• AI-generated message data and campaign data may be retained for up to 12 months to provide analytics and history features\n• Billing and transaction records are retained for 7 years to comply with financial and tax regulations\n• You may request deletion of your personal data at any time (see Section 8)`,
   },
   {
-    title: "7. Data Privacy & Security",
-    content: `We take your privacy seriously. We collect and process personal data in accordance with our Privacy Policy. Your Instagram credentials and campaign data are encrypted and stored securely. We do not sell your personal information to third parties. You retain ownership of all content and data you provide through the Service.`,
+    title: "7. Cookies",
+    content: `We use cookies and similar tracking technologies to:\n\n• Keep you logged into your account (essential session cookies)\n• Remember your preferences and settings\n• Analyse platform usage to improve the Service (analytics cookies)\n\nYou can control cookies through your browser settings. Disabling essential cookies may affect the functionality of the platform.`,
   },
   {
-    title: "8. Intellectual Property",
-    content: `The Service and its original content, features, and functionality are owned by ColdNerd and are protected by international copyright, trademark, and other intellectual property laws. You may not copy, modify, distribute, or create derivative works based on our Service without express written consent.`,
+    title: "8. Your Rights",
+    content: `Depending on your location, you may have the following rights regarding your personal data:\n\n• Access: Request a copy of the personal data we hold about you\n• Correction: Request correction of inaccurate or incomplete data\n• Deletion: Request deletion of your personal data ("right to be forgotten")\n• Portability: Request your data in a structured, machine-readable format\n• Objection: Object to processing of your data for certain purposes\n• Withdrawal of Consent: Withdraw consent where processing is based on consent\n\nTo exercise any of these rights, contact us at privacy@coldnerd.com. We will respond within 30 days.`,
   },
   {
-    title: "9. Limitation of Liability",
-    content: `In no event shall ColdNerd, its directors, employees, or agents be liable for any indirect, incidental, special, consequential, or punitive damages arising out of your use of the Service. This includes but is not limited to: loss of profits, data, or business opportunities; Instagram account restrictions or bans; or any other intangible losses. Our total liability shall not exceed the amount you paid for the Service in the twelve months preceding any claim.`,
+    title: "9. Data Security",
+    content: `We implement industry-standard security measures to protect your personal data, including encrypted data transmission (HTTPS/TLS), secure credential storage, access controls, and regular security reviews. However, no method of transmission over the internet is 100% secure. We encourage you to use a strong, unique password for your Cold Nerd account.`,
   },
   {
-    title: "10. Service Availability",
-    content: `We strive to maintain 99.9% uptime but do not guarantee uninterrupted access to the Service. We may perform scheduled maintenance, updates, or modifications that temporarily affect availability. We are not responsible for any disruptions caused by third-party services, including Instagram's API changes or outages.`,
+    title: "10. Children's Privacy",
+    content: `Cold Nerd is intended for use by businesses and professionals aged 18 and over. We do not knowingly collect personal data from individuals under 18 years of age. If we become aware that a minor has provided us with personal data, we will delete it promptly.`,
   },
   {
-    title: "11. Termination",
-    content: `We may terminate or suspend your account immediately, without prior notice, if you breach these Terms. Upon termination, your right to use the Service will cease immediately. All provisions of these Terms that should survive termination shall survive, including ownership provisions, warranty disclaimers, and limitations of liability.`,
+    title: "11. Changes to This Policy",
+    content: `We may update this Privacy Policy from time to time. When we do, we will revise the "Last Updated" date at the top of this page and, for material changes, notify you by email or via a notice within the platform. Your continued use of the Service after any changes constitutes acceptance of the updated policy.`,
   },
   {
-    title: "12. Changes to Terms",
-    content: `We reserve the right to modify these Terms at any time. We will notify users of material changes via email or through the Service. Your continued use of the Service after changes constitute acceptance of the new Terms. It is your responsibility to review these Terms periodically.`,
-  },
-  {
-    title: "13. Contact Information",
-    content: `If you have any questions about these Terms and Conditions, please contact us at:\n\nEmail: support@coldnerd.com\nWebsite: https://coldnerd.com`,
+    title: "12. Contact Us",
+    content: `If you have any questions, concerns, or requests regarding this Privacy Policy or how we handle your data, please reach out:\n\nCold Nerd — Privacy Inquiries\nEmail: privacy@coldnerd.com\nWebsite: coldnerd.com\n\nFor billing and payment-related data requests, contact Paddle directly at paddle.com/legal/privacy.`,
   },
 ];
 
@@ -68,7 +64,7 @@ export default function TermsAndConditions() {
           <img alt="ColdNerd Logo" className="h-full w-auto object-contain pointer-events-none" src={imgLogo} />
         </Link>
         <div className="hidden md:flex items-center absolute left-1/2 -translate-x-1/2">
-          <span className="font-['Inter:Bold',sans-serif] font-bold text-[#0d0d0d] text-[20px]">Terms & Conditions</span>
+          <span className="font-['Inter:Bold',sans-serif] font-bold text-[#0d0d0d] text-[20px]">Privacy Policy</span>
         </div>
         <div className="flex gap-[8px] items-center shrink-0">
           <Link to="/pricing" className="flex items-center gap-1 font-semibold text-[#2a6ff3] text-[15px] hover:opacity-80 transition-opacity no-underline">
@@ -97,12 +93,22 @@ export default function TermsAndConditions() {
             Legal
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4">
-            Terms and Conditions
+            Privacy Policy
           </h1>
           <p className="text-base sm:text-lg text-gray-500">
             Last updated: March 24, 2026
           </p>
         </motion.div>
+      </div>
+
+      {/* Paddle Notice */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+        <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6 sm:p-8 flex gap-4 items-start">
+          <span className="text-2xl flex-shrink-0">🔒</span>
+          <p className="text-[14px] text-gray-700 leading-relaxed">
+            <strong className="text-[#2a6ff3]">Payment Processing Notice:</strong> Cold Nerd uses <strong>Paddle.com</strong> as our Merchant of Record. All payments, billing, and subscription management are handled by Paddle. When you make a purchase, your payment data is processed directly by Paddle under their own Privacy Policy. Cold Nerd does not store your credit card or payment information.
+          </p>
+        </div>
       </div>
 
       {/* Content */}

@@ -430,9 +430,9 @@ function HeroImages() {
       initial={{ opacity: 0, y: 80 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="relative w-full flex justify-center lg:flex-none lg:absolute lg:right-[-8%] xl:right-[-5%] 2xl:right-[-2%] lg:top-[55%] lg:-translate-y-1/2 mt-6 sm:mt-8 lg:mt-0"
+      className="relative w-full flex justify-end lg:flex-none lg:absolute lg:right-[-8%] xl:right-[-5%] 2xl:right-[-2%] lg:top-[55%] lg:-translate-y-1/2 -mr-4 sm:-mr-2 lg:mr-0 mt-6 sm:mt-8 lg:mt-0"
     >
-      <div className="relative w-[420px] h-[420px] sm:w-[480px] sm:h-[480px] lg:w-[540px] lg:h-[540px] xl:w-[580px] xl:h-[580px] 2xl:w-[640px] 2xl:h-[640px]">
+      <div className="relative w-[440px] h-[440px] sm:w-[480px] sm:h-[480px] lg:w-[540px] lg:h-[540px] xl:w-[580px] xl:h-[580px] 2xl:w-[640px] 2xl:h-[640px]">
         {/* Blue circle */}
         <BgShape />
 
@@ -4528,136 +4528,250 @@ const problemSolutionItems = [
 ];
 
 function ProblemSolutionMobile() {
+  // SVG arc paths from Figma export
+  const arcPaths = {
+    redArc: "M2.93676 184.856C0.492157 143.019 13.3236 101.722 39.0242 68.713C64.7248 35.7037 101.529 13.2497 142.533 5.56267C183.537 -2.12436 225.923 5.48379 261.742 26.96C297.56 48.4363 324.35 82.305 337.086 122.213L320.289 127.625C308.864 91.8256 284.833 61.4442 252.703 42.1793C220.572 22.9144 182.55 16.0896 145.768 22.9851C108.986 29.8806 75.9717 50.0227 52.9174 79.6331C29.8631 109.244 18.3529 146.288 20.5457 183.818L2.93676 184.856Z",
+    blueArc1: "M8.52058 204.691C-0.841719 171.137 1.01899 135.423 13.8169 103.035C26.6147 70.6469 49.6419 43.3761 79.3609 25.412C109.08 7.44788 143.847 -0.215843 178.321 3.59808C212.796 7.412 245.07 22.4926 270.187 46.5233L258.944 58.387C236.413 36.8307 207.461 23.3029 176.537 19.8816C145.612 16.4604 114.425 23.335 87.766 39.4494C61.107 55.5638 40.4509 80.0267 28.9707 109.08C17.4906 138.133 15.8215 170.17 24.2198 200.269L8.52058 204.691Z",
+    blueArc2: "M8.52062 204.691C-1.36232 169.272 1.27553 131.505 15.9853 97.8196C30.695 64.134 56.5676 36.6104 89.2002 19.9331C121.833 3.25568 159.209 -1.54502 194.967 6.34794C230.726 14.2409 262.658 34.3398 285.328 63.2242L272.526 73.3683C252.189 47.458 223.546 29.4286 191.469 22.3484C159.392 15.2681 125.865 19.5745 96.5922 34.5347C67.3197 49.4949 44.111 74.1844 30.9159 104.402C17.7208 134.619 15.3545 168.496 24.2198 200.269L8.52062 204.691Z",
+    blueArc3: "M8.52076 204.691C-2.29324 165.934 1.91494 124.5 20.2973 88.737C38.6798 52.9739 69.87 25.5405 107.583 11.9647C145.296 -1.61106 186.729 -0.320128 223.532 15.5774C260.336 31.4749 289.774 60.7973 305.916 97.6361L290.994 104.237C276.514 71.1913 250.107 44.8881 217.093 30.6275C184.079 16.3669 146.912 15.2088 113.082 27.3868C79.2523 39.5647 51.2736 64.1734 34.784 96.2541C18.2943 128.335 14.5195 165.503 24.22 200.269L8.52076 204.691Z",
+    warningTriangle: "M38.0522 33.1195L1.94775 33.1213C1.60585 33.1213 1.26997 33.0365 0.97387 32.8755C0.677773 32.7145 0.431893 32.4829 0.260944 32.204C0.0899942 31.9251 -2.17147e-06 31.6087 0 31.2867C2.17155e-06 30.9647 0.090003 30.6483 0.260956 30.3694L18.3093 0.917205C18.4803 0.638337 18.7262 0.406765 19.0222 0.245762C19.3183 0.08476 19.6542 0 19.9961 0C20.338 0 20.6739 0.08476 20.97 0.245762C21.2661 0.406765 21.5119 0.638337 21.6829 0.917205L39.739 30.3676C39.91 30.6465 40 30.9628 40 31.2849C40 31.6069 39.91 31.9233 39.7391 32.2022C39.5681 32.481 39.3222 32.7126 39.0261 32.8737C38.73 33.0347 38.3942 33.1195 38.0522 33.1195ZM18.5353 12.0072L18.7612 22.4019H21.2388L21.4667 12.0072H18.5353ZM19.9961 27.7332C20.9311 27.7332 21.6615 27.0562 21.6615 26.2068C21.6615 25.3574 20.931 24.6914 19.9942 24.6914C19.7792 24.6866 19.5655 24.7221 19.3653 24.796C19.1652 24.8698 18.9827 24.9806 18.8285 25.1217C18.6743 25.2628 18.5516 25.4314 18.4675 25.6177C18.3833 25.8041 18.3395 26.0043 18.3385 26.2068C18.3385 27.0562 19.0689 27.7332 19.9942 27.7332H19.9961Z",
+    chatIcon: "M27.1333 18.6022L33 13.4259V3.23516C33 1.45582 31.35 0 29.3333 0H3.66667C1.65 0 0 1.45582 0 3.23516V17.7934C0 19.5727 1.65 21.0285 3.66667 21.0285H7.33333V29.1164L23.2833 15.0435L27.1333 18.6022Z",
+    chatCheck: "M37.7667 13.1025L26.5833 22.9698L22.7333 19.4111L20.1667 21.6757L26.5833 27.499L40.3333 15.2054L37.7667 13.1025Z",
+    starIcon: "M28 0C29.8565 0 31.637 0.661034 32.9497 1.83768C34.2625 3.01433 35 4.61021 35 6.27424V21.9599C35 23.6239 34.2625 25.2198 32.9497 26.3964C31.637 27.5731 29.8565 28.2341 28 28.2341H7C5.14348 28.2341 3.36301 27.5731 2.05025 26.3964C0.737498 25.2198 0 23.6239 0 21.9599V6.27424C0 4.61021 0.737498 3.01433 2.05025 1.83768C3.36301 0.661034 5.14348 0 7 0H28ZM18.529 6.90167C18.4476 6.71653 18.3059 6.55762 18.1224 6.44563C17.9389 6.33365 17.722 6.27376 17.5 6.27376C17.278 6.27376 17.0611 6.33365 16.8776 6.44563C16.6941 6.55762 16.5524 6.71653 16.471 6.90167L15.9163 8.09848C14.9872 10.1282 13.2245 11.7609 10.9918 12.6599L9.42375 13.2857C8.526 13.6433 8.526 14.8151 9.42375 15.1743L11.0863 15.8362C13.2625 16.7113 14.9939 18.2856 15.939 20.2486L16.478 21.3575C16.5623 21.5382 16.7043 21.6925 16.8861 21.801C17.068 21.9095 17.2815 21.9674 17.5 21.9674C17.7185 21.9674 17.932 21.9095 18.1139 21.801C18.2957 21.6925 18.4377 21.5382 18.522 21.3575L19.061 20.2486C20.0061 18.2856 21.7375 16.7113 23.9137 15.8362L25.5762 15.1743C26.4757 14.8151 26.474 13.6433 25.5762 13.2857L24.0082 12.6599C21.7749 11.7612 20.0115 10.1284 19.082 8.09848L18.529 6.90167Z",
+    msgIcon: "M33.15 0C34.7015 0 36.1895 0.616294 37.2866 1.7133C38.3837 2.81031 39 4.29818 39 5.84958V25.3482C39 26.8996 38.3837 28.3875 37.2866 29.4845C36.1895 30.5815 34.7015 31.1978 33.15 31.1978H25.9409L20.8514 34.5905C20.0324 35.1365 18.9677 35.1365 18.1487 34.5905L13.0591 31.1978H5.85C4.29848 31.1978 2.81051 30.5815 1.71343 29.4845C0.616338 28.3875 0 26.8996 0 25.3482V5.84958C0 4.29818 0.616338 2.81031 1.71343 1.7133C2.81051 0.616294 4.29848 0 5.85 0H33.15ZM12.675 13.649C11.8992 13.649 11.1553 13.9572 10.6067 14.5057C10.0582 15.0542 9.75 15.7981 9.75 16.5738C9.75 17.3495 10.0582 18.0935 10.6067 18.642C11.1553 19.1905 11.8992 19.4986 12.675 19.4986C13.4508 19.4986 14.1947 19.1905 14.7433 18.642C15.2918 18.0935 15.6 17.3495 15.6 16.5738C15.6 15.7981 15.2918 15.0542 14.7433 14.5057C14.1947 13.9572 13.4508 13.649 12.675 13.649ZM26.325 13.649C25.5492 13.649 24.8053 13.9572 24.2567 14.5057C23.7082 15.0542 23.4 15.7981 23.4 16.5738C23.4 17.3495 23.7082 18.0935 24.2567 18.642C24.8053 19.1905 25.5492 19.4986 26.325 19.4986C27.1008 19.4986 27.8447 19.1905 28.3933 18.642C28.9418 18.0935 29.25 17.3495 29.25 16.5738C29.25 15.7981 28.9418 15.0542 28.3933 14.5057C27.8447 13.9572 27.1008 13.649 26.325 13.649Z",
+  };
+
   return (
-    <section className="py-12 bg-[#F5F5F5]">
+    <section className="py-12 bg-white overflow-hidden">
       {/* Centered pill label */}
-      <div className="flex justify-center mb-8">
+      <div className="flex justify-center mb-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="px-5 py-2 rounded-full text-sm font-medium border border-blue-200 text-[#2F80ED] bg-white"
+          className="relative"
         >
-          Problem &amp; Solutions
+          <div className="px-6 py-2.5 rounded-full bg-white shadow-[2px_2px_7px_0px_rgba(65,74,83,0.1)] border border-gray-100">
+            <p className="font-['Inter',sans-serif] font-medium text-[12px] text-black opacity-70">Problem &amp; Solutions</p>
+          </div>
         </motion.div>
       </div>
 
-      {/* S-curve container */}
-      <div className="relative mx-auto" style={{ maxWidth: 390, minHeight: 900 }}>
-        {/* Single continuous S-curve SVG */}
-        <svg
-          className="absolute inset-0 w-full h-full pointer-events-none"
-          viewBox="0 0 390 900"
-          fill="none"
-          preserveAspectRatio="xMidYMid meet"
-        >
-          {/* Red arc - top problem section */}
-          <motion.path
-            d="M195,0 C195,30 195,50 210,80 C240,130 330,150 340,210 C350,270 290,310 220,330"
-            stroke="#FF3B30"
-            strokeWidth="18"
-            strokeLinecap="round"
-            fill="none"
-            initial={{ pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
+      {/* Scaled Figma container */}
+      <div className="relative mx-auto w-full overflow-hidden" style={{ maxWidth: 430, aspectRatio: "430 / 1300" }}>
+        <div className="absolute inset-0" style={{ width: 430, height: 1300 }}>
+
+          {/* RED ARC - Problem section (top) */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
-          />
-          {/* Blue S-curve - solutions */}
-          <motion.path
-            d="M220,330 C150,350 50,380 50,450 C50,520 150,550 195,570 C240,590 340,620 340,690 C340,760 240,790 195,810 C150,830 50,860 50,900"
-            stroke="#2F80ED"
-            strokeWidth="18"
-            strokeLinecap="round"
-            fill="none"
-            initial={{ pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
+            transition={{ duration: 0.8 }}
+            className="absolute flex items-center justify-center"
+            style={{ left: 51, top: 30, width: 454, height: 453 }}
+          >
+            <div className="flex-none" style={{ transform: "rotate(-66.13deg) skewX(0.01deg)" }}>
+              <div className="relative" style={{ width: 343, height: 344 }}>
+                <svg className="absolute" style={{ left: "-0.77%", top: "-0.77%", width: "101.54%", height: "54.51%" }} viewBox="0 0 340.404 187.65" fill="none" preserveAspectRatio="none">
+                  <motion.path
+                    d={arcPaths.redArc}
+                    fill="#F31705"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                  />
+                </svg>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Warning triangle icon */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1.8, delay: 0.8, ease: "easeInOut" }}
-          />
-        </svg>
-
-        {/* Content items positioned along the curve */}
-
-        {/* PROBLEM - top right of red curve */}
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="absolute flex items-start gap-3"
-          style={{ top: 80, left: "28%", right: 24 }}
-        >
-          <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#FFF0EF] flex items-center justify-center mt-0.5">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-              <path d="M12 2L1 21h22L12 2z" fill="#FF3B30" opacity="0.25"/>
-              <path d="M12 2L1 21h22L12 2z" stroke="#FF3B30" strokeWidth="1.5" strokeLinejoin="round"/>
-              <path d="M12 10v4" stroke="#FF3B30" strokeWidth="2" strokeLinecap="round"/>
-              <circle cx="12" cy="17" r="1" fill="#FF3B30"/>
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="absolute"
+            style={{ left: 56, top: 186, width: 40, height: 33 }}
+          >
+            <svg className="block w-full h-full" fill="none" viewBox="0 0 40 33.1213">
+              <path clipRule="evenodd" d={arcPaths.warningTriangle} fill="#EB4335" fillRule="evenodd" />
             </svg>
-          </div>
-          <div>
-            <h3 className="text-[22px] font-bold text-[#0d0d0d] leading-tight mb-1.5">Problem</h3>
-            <p className="text-[14px] text-[#7a7a7a] leading-[1.6]">Manual Instagram outreach is time-consuming, inconsistent, and hard to scale.</p>
-          </div>
-        </motion.div>
+          </motion.div>
 
-        {/* SOLUTION 1 - left side */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="absolute"
-          style={{ top: 310, left: 24, right: "38%" }}
-        >
-          <h3 className="text-[22px] font-bold text-[#0d0d0d] leading-tight mb-1.5">Solution 1</h3>
-          <p className="text-[14px] text-[#7a7a7a] leading-[1.6]">Identify ideal prospects from followers, likers, and hashtags.</p>
-          <div className="absolute -right-12 top-0 w-10 h-10 rounded-lg bg-[#EBF3FF] flex items-center justify-center">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="#2F80ED">
-              <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
-              <path d="M13 11V7l-4 4 4 4v-4z" fill="white"/>
-            </svg>
-          </div>
-        </motion.div>
+          {/* Problem text */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="absolute flex flex-col items-start"
+            style={{ left: 171, top: 170, width: 237, paddingBottom: 19 }}
+          >
+            <p className="font-['Inter',sans-serif] font-medium text-[#0d0d0d] text-[24px] leading-[78px] w-full">Problem</p>
+            <p className="font-['Inter',sans-serif] font-normal text-[#5e5e5e] text-[15px] leading-[30px] opacity-70" style={{ width: 229 }}>Manual Instagram outreach is time-consuming, inconsistent, and hard to scale.</p>
+          </motion.div>
 
-        {/* SOLUTION 2 - right side */}
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.7 }}
-          className="absolute"
-          style={{ top: 550, left: "40%", right: 24 }}
-        >
-          <h3 className="text-[22px] font-bold text-[#0d0d0d] leading-tight mb-1.5">Solution 2</h3>
-          <p className="text-[14px] text-[#7a7a7a] leading-[1.6]">Monitor campaign activity and response rates instantly.</p>
-          <div className="absolute -left-12 top-0 w-10 h-10 rounded-lg bg-[#EBF3FF] flex items-center justify-center">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="#2F80ED">
-              <path d="M19.14 12.94a7 7 0 0 0 .26-1.94 6.94 6.94 0 0 0-.26-1.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.49.49 0 0 0-.59-.22l-2.39.96a7.04 7.04 0 0 0-3.34-1.93L12.49 .37A.49.49 0 0 0 12 0h-3.84a.49.49 0 0 0-.49.37l-.56 2.49a7.04 7.04 0 0 0-3.34 1.93L1.38 3.83a.49.49 0 0 0-.59.22L-1.13 7.37a.49.49 0 0 0 .12.61l2.03 1.58A7 7 0 0 0 .76 11.5c0 .66.09 1.31.26 1.94L-1.01 15a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96a7.04 7.04 0 0 0 3.34 1.93l.56 2.49c.05.22.25.37.49.37H12c.24 0 .44-.15.49-.37l.56-2.49a7.04 7.04 0 0 0 3.34-1.93l2.39.96c.22.08.47 0 .59-.22l1.92-3.32a.49.49 0 0 0-.12-.61l-2.03-1.56z"/>
-              <circle cx="10.08" cy="11.5" r="2.5" fill="white"/>
-            </svg>
-          </div>
-        </motion.div>
+          {/* BLUE ARC 1 - Solution 1 area */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="absolute flex items-center justify-center"
+            style={{ left: 4, top: 336, width: 435, height: 435 }}
+          >
+            <div className="flex-none" style={{ transform: "rotate(120.76deg) skewX(0.01deg)" }}>
+              <div className="relative" style={{ width: 317, height: 318 }}>
+                <svg className="absolute" style={{ left: "-0.83%", top: "-0.83%", width: "86.49%", height: "65.35%" }} viewBox="0 0 273.914 207.953" fill="none" preserveAspectRatio="none">
+                  <motion.path
+                    d={arcPaths.blueArc1}
+                    fill="#2196F3"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+                  />
+                </svg>
+              </div>
+            </div>
+          </motion.div>
 
-        {/* SOLUTION 3 - left side */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.9 }}
-          className="absolute"
-          style={{ top: 770, left: 24, right: "38%" }}
-        >
-          <h3 className="text-[22px] font-bold text-[#0d0d0d] leading-tight mb-1.5">Solution 3</h3>
-          <p className="text-[14px] text-[#7a7a7a] leading-[1.6]">Automate personalized DMs with smart follow-ups</p>
-          <div className="absolute -right-12 top-0 w-10 h-10 rounded-lg bg-[#EBF3FF] flex items-center justify-center">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="#2F80ED">
-              <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+          {/* Chat icon (Solution 1) */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.8 }}
+            className="absolute"
+            style={{ left: 362, top: 498, width: 40, height: 29 }}
+          >
+            <svg className="block w-full h-full" fill="none" viewBox="0 0 40.3333 29.1164">
+              <path d={arcPaths.chatIcon} fill="#2196F3" />
+              <path d={arcPaths.chatCheck} fill="#2196F3" />
             </svg>
-          </div>
-        </motion.div>
+          </motion.div>
+
+          {/* Solution 1 text */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="absolute flex flex-col items-start"
+            style={{ left: 76, top: 471, width: 339, paddingBottom: 19 }}
+          >
+            <p className="font-['Inter',sans-serif] font-medium text-[#0d0d0d] text-[24px] leading-[78px] w-full">Solution 1</p>
+            <p className="font-['Inter',sans-serif] font-normal text-[#5e5e5e] text-[15px] leading-[30px] opacity-70" style={{ width: 245 }}>Identify ideal prospects from followers, likers, and hashtags.</p>
+          </motion.div>
+
+          {/* BLUE ARC 2 - Solution 2 area */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="absolute flex items-center justify-center"
+            style={{ left: 74, top: 629, width: 433, height: 432 }}
+          >
+            <div className="flex-none" style={{ transform: "rotate(-60.42deg) skewX(0.01deg)" }}>
+              <div className="relative" style={{ width: 317, height: 318 }}>
+                <svg className="absolute" style={{ left: "-0.83%", top: "-0.83%", width: "91.26%", height: "65.35%" }} viewBox="0 0 289.03 207.953" fill="none" preserveAspectRatio="none">
+                  <motion.path
+                    d={arcPaths.blueArc2}
+                    fill="#2196F3"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, delay: 0.9, ease: "easeOut" }}
+                  />
+                </svg>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Star icon (Solution 2) */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 1.1 }}
+            className="absolute"
+            style={{ left: 34, top: 737, width: 35, height: 28 }}
+          >
+            <svg className="block w-full h-full" fill="none" viewBox="0 0 35 28.2341">
+              <path d={arcPaths.starIcon} fill="#2196F3" />
+            </svg>
+          </motion.div>
+
+          {/* Solution 2 text */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.9 }}
+            className="absolute flex flex-col items-start"
+            style={{ left: 171, top: 776, width: 334, paddingBottom: 19 }}
+          >
+            <p className="font-['Inter',sans-serif] font-medium text-[#0d0d0d] text-[24px] leading-[78px] w-full">Solution 2</p>
+            <p className="font-['Inter',sans-serif] font-normal text-[#5e5e5e] text-[15px] leading-[30px] opacity-70" style={{ width: 245 }}>Monitor campaign activity and response rates instantly.</p>
+          </motion.div>
+
+          {/* BLUE ARC 3 - Solution 3 area */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 1.1 }}
+            className="absolute flex items-center justify-center"
+            style={{ left: 0, top: 920, width: 435, height: 435 }}
+          >
+            <div className="flex-none" style={{ transform: "rotate(120.76deg) skewX(0.01deg)" }}>
+              <div className="relative" style={{ width: 317, height: 318 }}>
+                <svg className="absolute" style={{ left: "-0.83%", top: "-0.83%", width: "97.67%", height: "65.35%" }} viewBox="0 0 309.393 207.952" fill="none" preserveAspectRatio="none">
+                  <motion.path
+                    d={arcPaths.blueArc3}
+                    fill="#2196F3"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, delay: 1.2, ease: "easeOut" }}
+                  />
+                </svg>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Message icon (Solution 3) */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 1.4 }}
+            className="absolute"
+            style={{ left: 360, top: 1126, width: 39, height: 35 }}
+          >
+            <svg className="block w-full h-full" fill="none" viewBox="0 0 39 35">
+              <path d={arcPaths.msgIcon} fill="#2196F3" />
+            </svg>
+          </motion.div>
+
+          {/* Solution 3 text */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 1.2 }}
+            className="absolute flex flex-col items-start"
+            style={{ left: 76, top: 1054, width: 339, paddingBottom: 19 }}
+          >
+            <p className="font-['Inter',sans-serif] font-medium text-[#0d0d0d] text-[24px] leading-[78px] w-full">Solution 3</p>
+            <p className="font-['Inter',sans-serif] font-normal text-[#5e5e5e] text-[15px] leading-[30px] opacity-70" style={{ width: 245 }}>Automate personalized DMs with smart follow-ups</p>
+          </motion.div>
+
+        </div>
       </div>
     </section>
   );

@@ -27,8 +27,8 @@ const plans = [
   {
     name: "Ultimate",
     description: "Complete multi-account growth & analytics for agencies and teams.",
-    monthlyPrice: 49,
-    yearlyPrice: 39,
+    monthlyPrice: 99,
+    yearlyPrice: 80,
     features: ["Unlimited DMs", "10+ accounts", "Auto warmup", "Humanize voice notes", "Basic admin controls", "White-label options", "API access", "Dedicated support"],
     popular: false,
   },
