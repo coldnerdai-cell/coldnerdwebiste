@@ -80,7 +80,7 @@ export function BlogSection() {
             hidden: {},
             visible: { transition: { staggerChildren: 0.1 } },
           }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+          className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-8"
         >
           {articles.map((article, i) => (
             <motion.div
@@ -101,7 +101,7 @@ export function BlogSection() {
                   className={`${article.bg} rounded-2xl overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full flex flex-col`}
                 >
                   {/* Image */}
-                  <div className="relative h-48 sm:h-56 flex items-center justify-center p-6 pt-8 overflow-hidden">
+                  <div className="relative h-32 sm:h-56 flex items-center justify-center p-3 sm:p-6 pt-4 sm:pt-8 overflow-hidden">
                     <img
                       src={article.image}
                       alt={article.title}
@@ -110,9 +110,9 @@ export function BlogSection() {
                   </div>
 
                   {/* Title */}
-                  <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 mt-auto">
+                  <div className="px-3 sm:px-6 pb-3 sm:pb-6 pt-0 mt-auto">
                     <h3
-                      className={`text-base sm:text-lg font-semibold ${article.textColor} leading-snug line-clamp-2`}
+                      className={`text-sm sm:text-lg font-semibold ${article.textColor} leading-snug line-clamp-3`}
                     >
                       {article.title}
                     </h3>

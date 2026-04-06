@@ -93,8 +93,8 @@ export function FooterSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <h2 className="text-2xl font-bold mb-4">
-                Cold<span className="text-[#0d1b3e]">Nerd</span>
+              <h2 className="text-2xl mb-4">
+                <span className="font-extrabold text-white">Cold</span><span className="font-normal text-white">Nerd</span>
               </h2>
               <p className="text-white/70 text-sm leading-relaxed mb-6 max-w-sm">
                 The #1 Instagram DM automation platform trusted by 10,000+ creators, brands, and agencies worldwide. Scale your outreach safely.

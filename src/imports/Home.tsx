@@ -158,10 +158,14 @@ function Navbar() {
         {user ? (
           <div className="relative group">
             <button
-              className="w-10 h-10 rounded-full bg-[#2a6ff3] flex items-center justify-center text-white font-bold text-sm hover:bg-[#1f5ccf] transition-colors"
+              className="w-10 h-10 rounded-full bg-[#2a6ff3] flex items-center justify-center text-white font-bold text-sm hover:bg-[#1f5ccf] transition-colors overflow-hidden"
               title={user.email || "Account"}
             >
-              {(user.user_metadata?.full_name || user.email || "U").charAt(0).toUpperCase()}
+              {user.user_metadata?.avatar_url ? (
+                <img src={user.user_metadata.avatar_url} alt="" className="w-full h-full object-cover rounded-full" />
+              ) : (
+                (user.user_metadata?.full_name || user.email || "U").charAt(0).toUpperCase()
+              )}
             </button>
             {/* Dropdown */}
             <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded-xl shadow-xl border border-gray-200 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
@@ -228,8 +232,12 @@ function Navbar() {
         {user ? (
           <div className="flex flex-col gap-2">
             <div className="flex items-center gap-3 py-2">
-              <div className="w-9 h-9 rounded-full bg-[#2a6ff3] flex items-center justify-center text-white font-bold text-sm">
-                {(user.user_metadata?.full_name || user.email || "U").charAt(0).toUpperCase()}
+              <div className="w-9 h-9 rounded-full bg-[#2a6ff3] flex items-center justify-center text-white font-bold text-sm overflow-hidden">
+                {user.user_metadata?.avatar_url ? (
+                  <img src={user.user_metadata.avatar_url} alt="" className="w-full h-full object-cover rounded-full" />
+                ) : (
+                  (user.user_metadata?.full_name || user.email || "U").charAt(0).toUpperCase()
+                )}
               </div>
               <div className="min-w-0">
                 <p className="text-sm font-medium text-gray-900 truncate">{user.user_metadata?.full_name || "User"}</p>
@@ -430,9 +438,9 @@ function HeroImages() {
       initial={{ opacity: 0, y: 80 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="relative w-full flex justify-end lg:flex-none lg:absolute lg:right-[-8%] xl:right-[-5%] 2xl:right-[-2%] lg:top-[55%] lg:-translate-y-1/2 -mr-4 sm:-mr-2 lg:mr-0 mt-6 sm:mt-8 lg:mt-0"
+      className="relative w-full flex justify-end lg:flex-none lg:absolute lg:right-[-8%] xl:right-[-5%] 2xl:right-[-2%] lg:top-[55%] lg:-translate-y-1/2 -mr-4 sm:-mr-2 lg:mr-0 mt-14 sm:mt-16 lg:mt-0"
     >
-      <div className="relative w-[440px] h-[440px] sm:w-[480px] sm:h-[480px] lg:w-[540px] lg:h-[540px] xl:w-[580px] xl:h-[580px] 2xl:w-[640px] 2xl:h-[640px]">
+      <div className="relative w-[360px] h-[360px] sm:w-[420px] sm:h-[420px] lg:w-[540px] lg:h-[540px] xl:w-[580px] xl:h-[580px] 2xl:w-[640px] 2xl:h-[640px]">
         {/* Blue circle */}
         <BgShape />
 
@@ -4594,7 +4602,7 @@ function ProblemSolutionMobile() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.4 }}
             className="absolute"
-            style={{ left: 56, top: 186, width: 40, height: 33 }}
+            style={{ left: 110, top: 145, width: 40, height: 33 }}
           >
             <svg className="block w-full h-full" fill="none" viewBox="0 0 40 33.1213">
               <path clipRule="evenodd" d={arcPaths.warningTriangle} fill="#EB4335" fillRule="evenodd" />
@@ -4608,7 +4616,7 @@ function ProblemSolutionMobile() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="absolute flex flex-col items-start"
-            style={{ left: 171, top: 170, width: 237, paddingBottom: 19 }}
+            style={{ left: 110, top: 180, width: 237, paddingBottom: 19 }}
           >
             <p className="font-['Inter',sans-serif] font-medium text-[#0d0d0d] text-[24px] leading-[78px] w-full">Problem</p>
             <p className="font-['Inter',sans-serif] font-normal text-[#5e5e5e] text-[15px] leading-[30px] opacity-70" style={{ width: 229 }}>Manual Instagram outreach is time-consuming, inconsistent, and hard to scale.</p>
@@ -4646,7 +4654,7 @@ function ProblemSolutionMobile() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.8 }}
             className="absolute"
-            style={{ left: 362, top: 498, width: 40, height: 29 }}
+            style={{ left: 80, top: 458, width: 40, height: 29 }}
           >
             <svg className="block w-full h-full" fill="none" viewBox="0 0 40.3333 29.1164">
               <path d={arcPaths.chatIcon} fill="#2196F3" />
@@ -4661,7 +4669,7 @@ function ProblemSolutionMobile() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.6 }}
             className="absolute flex flex-col items-start"
-            style={{ left: 76, top: 471, width: 339, paddingBottom: 19 }}
+            style={{ left: 80, top: 490, width: 339, paddingBottom: 19 }}
           >
             <p className="font-['Inter',sans-serif] font-medium text-[#0d0d0d] text-[24px] leading-[78px] w-full">Solution 1</p>
             <p className="font-['Inter',sans-serif] font-normal text-[#5e5e5e] text-[15px] leading-[30px] opacity-70" style={{ width: 245 }}>Identify ideal prospects from followers, likers, and hashtags.</p>
@@ -4699,7 +4707,7 @@ function ProblemSolutionMobile() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 1.1 }}
             className="absolute"
-            style={{ left: 34, top: 737, width: 35, height: 28 }}
+            style={{ left: 200, top: 760, width: 35, height: 28 }}
           >
             <svg className="block w-full h-full" fill="none" viewBox="0 0 35 28.2341">
               <path d={arcPaths.starIcon} fill="#2196F3" />
@@ -4713,7 +4721,7 @@ function ProblemSolutionMobile() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.9 }}
             className="absolute flex flex-col items-start"
-            style={{ left: 171, top: 776, width: 334, paddingBottom: 19 }}
+            style={{ left: 200, top: 790, width: 220, paddingBottom: 19 }}
           >
             <p className="font-['Inter',sans-serif] font-medium text-[#0d0d0d] text-[24px] leading-[78px] w-full">Solution 2</p>
             <p className="font-['Inter',sans-serif] font-normal text-[#5e5e5e] text-[15px] leading-[30px] opacity-70" style={{ width: 245 }}>Monitor campaign activity and response rates instantly.</p>
@@ -4751,7 +4759,7 @@ function ProblemSolutionMobile() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 1.4 }}
             className="absolute"
-            style={{ left: 360, top: 1126, width: 39, height: 35 }}
+            style={{ left: 80, top: 1050, width: 39, height: 35 }}
           >
             <svg className="block w-full h-full" fill="none" viewBox="0 0 39 35">
               <path d={arcPaths.msgIcon} fill="#2196F3" />
@@ -4765,7 +4773,7 @@ function ProblemSolutionMobile() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 1.2 }}
             className="absolute flex flex-col items-start"
-            style={{ left: 76, top: 1054, width: 339, paddingBottom: 19 }}
+            style={{ left: 80, top: 1080, width: 339, paddingBottom: 19 }}
           >
             <p className="font-['Inter',sans-serif] font-medium text-[#0d0d0d] text-[24px] leading-[78px] w-full">Solution 3</p>
             <p className="font-['Inter',sans-serif] font-normal text-[#5e5e5e] text-[15px] leading-[30px] opacity-70" style={{ width: 245 }}>Automate personalized DMs with smart follow-ups</p>
